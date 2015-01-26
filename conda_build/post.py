@@ -156,7 +156,7 @@ def osx_ch_link(path, link):
     if link.startswith(prefix_lib):
         return '@loader_path/%s/%s' % (reldir, link[len(prefix_lib) + 1:])
 
-    if link.startswith(('lib', '@executable_path/')):
+    if link.startswith(('lib', '@executable_path/', '@rpath/')):
         return '@loader_path/%s/%s' % (reldir, basename(link))
 
     if link == '/usr/local/lib/libgcc_s.1.dylib':
